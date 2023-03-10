@@ -10,7 +10,7 @@ export const Account = () => {
       <section className="accountInfo">
         <div className="flex-col boxItems">
           <h1>Account Information</h1>
-          <div className="content">
+          <div className="flex flex-col tablet:flex-row content">
             <div className="left">
               <div className="img flexCenter">
                 <input type="file" accept="image/*" src={image} alt="img" />
