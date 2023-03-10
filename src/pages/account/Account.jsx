@@ -1,21 +1,21 @@
-import React from 'react'
-import image from '../../assets/images/input.png'
-import './account.css'
-import { Header } from '../../components/header/Header'
+import React from "react";
+import image from "../../assets/images/input.png";
+import "./account.css";
+import { Header } from "../../components/header/Header";
 
 export const Account = () => {
   return (
     <>
       <Header />
       <section className="accountInfo">
-        <div className="container boxItems">
+        <div className="flex-col boxItems">
           <h1>Account Information</h1>
           <div className="content">
             <div className="left">
               <div className="img flexCenter">
                 <input type="file" accept="image/*" src={image} alt="img" />
                 <img
-                  src={'https://avatars.githubusercontent.com/u/99442773?v=4'}
+                  src={"https://avatars.githubusercontent.com/u/99442773?v=4"}
                   alt="image"
                   class="image-preview"
                 />
@@ -34,5 +34,5 @@ export const Account = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};

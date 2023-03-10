@@ -27,3 +27,10 @@
 .login .text h1 {
   font-size: 40px;
 }
+
+input {
+  width: 100px;
+}
+.container {
+  margin-left: 10px;
+}

@@ -4,6 +4,9 @@
 .newPost .container {
   max-width: 50%;
 }
+.container {
+  margin: 0 auto;
+}
 .newPost i {
   font-size: 25px;
   margin-right: 20px;

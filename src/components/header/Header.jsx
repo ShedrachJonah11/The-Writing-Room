@@ -44,7 +44,7 @@ const MobileMenu = () => {
         className={` absolute -top-[65%] w-full p-3 h-screen  bg-red-500 ${
           menu
             ? "translate-x-0 ease-out duration-300"
-            : "translate-x-[100vw] ease-in duration-300"
+            : "translate-x-[100vw] ease-in duration-300 hidden"
         }`}
       >
         <span className="flex justify-end" onClick={() => setMenu(false)}>

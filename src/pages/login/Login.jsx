@@ -1,36 +1,36 @@
-import React from 'react'
-import './login.css'
-import back from '../../assets/images/my-account.jpg'
-import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { authSliceAction } from '../../store/slices/auth-slice'
-import { useEffect } from 'react'
-import { Header } from '../../components/header/Header'
-import { useNavigate } from 'react-router-dom'
+import React from "react";
+import "./login.css";
+import back from "../../assets/images/my-account.jpg";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { authSliceAction } from "../../store/slices/auth-slice";
+import { useEffect } from "react";
+import { Header } from "../../components/header/Header";
+import { useNavigate } from "react-router-dom";
 export const Login = () => {
-  const navigate = useNavigate()
-  const { authenticate } = useSelector((state) => state.auth)
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const navigate = useNavigate();
+  const { authenticate } = useSelector((state) => state.auth);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const handlerDummy = () => {
-    setEmail('shedrach@gmail.com')
-    setPassword('test2_3')
-  }
-  console.log(authenticate)
-  const dispatch = useDispatch()
+    setEmail("shedrach@gmail.com");
+    setPassword("test2_3");
+  };
+  console.log(authenticate);
+  const dispatch = useDispatch();
 
   const handlerFormSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     dispatch(
       authSliceAction.login({
-        email: 'shedrach@gmail.com',
-        password: 'test2_3',
-      }),
-    )
-    console.log(authenticate)
-    navigate('/', { replace: true })
-  }
-  useEffect(() => {}, [dispatch])
+        email: "shedrach@gmail.com",
+        password: "test2_3",
+      })
+    );
+    console.log(authenticate);
+    navigate("/", { replace: true });
+  };
+  useEffect(() => {}, [dispatch]);
   return (
     <>
       <Header />
@@ -74,5 +74,5 @@ export const Login = () => {
         </div>
       </section>
     </>
-  )
-}
+  );
+};

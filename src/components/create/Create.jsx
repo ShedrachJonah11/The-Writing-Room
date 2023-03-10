@@ -43,7 +43,7 @@ export const Create = () => {
     <>
       <Header />
       <section className="newPost">
-        <div className="container boxItems">
+        <div className="flex-col boxItems">
           <div className="img ">
             <img
               src="https://images.unsplash.com/photo-1471666875520-c75081f42081?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=972&q=80"
