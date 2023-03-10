@@ -54,6 +54,7 @@ export const Login = () => {
               value={email}
               required
               placeholder="email address"
+              onChange={(event) => setEmail(event.target.value)}
             />
             <label className="text-lg">Password *</label>
             <input
@@ -61,6 +62,7 @@ export const Login = () => {
               required
               value={password}
               placeholder="enter password"
+              onChange={(event) => setPassword(event.target.value)}
             />
             <span className="flex gap-2 flex-col">
               <button type="submit" className="button">
