@@ -6,7 +6,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 import { Login } from "./pages/login/Login";
-import { Regsiter } from "./pages/login/Regsiter";
+// import { Regsiter } from "./pages/register/Register";
 import { DetailsPages } from "./pages/details/DetailsPages";
 import { Account } from "./pages/account/Account";
 import { Create } from "./components/create/Create";
@@ -35,14 +35,14 @@ const router = createBrowserRouter([
       // </Protected>
     ),
   },
-  {
-    path: "register",
-    element: (
-      <Protected>
-        <Regsiter />
-      </Protected>
-    ),
-  },
+  // {
+  //   path: "register",
+  //   element: (
+  //     // <Protected>
+  //     <Regsiter />
+  //     // </Protected>
+  //   ),
+  // },
   {
     path: "details/:id",
     element: <DetailsPages />,

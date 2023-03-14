@@ -74,7 +74,7 @@ const MobileMenu = () => {
                 className="bg-black flex  text-white p-2 rounded-lg"
               >
                 {" "}
-                Sign in/Sign Up
+                Sign in
               </Link>
             )}
           </span>
@@ -105,7 +105,7 @@ const MobileMenu = () => {
               className="bg-black flex  text-white p-2 rounded-lg"
             >
               {" "}
-              Sign in/Sign Up
+              Sign in
             </Link>
           )}
         </span>
@@ -152,7 +152,7 @@ const DestopMenu = () => {
               className="bg-black flex  text-white p-2 rounded-lg"
             >
               {" "}
-              Sign in/Sign Up
+              Sign in
             </Link>
           )}
         </span>

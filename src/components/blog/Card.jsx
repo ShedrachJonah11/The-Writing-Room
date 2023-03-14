@@ -4,13 +4,13 @@ import b1 from "../../assets/images/blogs/b1.jpg";
 import CommentSection from "../../pages/comment/CommentsForm";
 
 import {
-  AiOutlineTags,
+  // AiOutlineTags,
   AiOutlineClockCircle,
   AiOutlineComment,
   AiOutlineShareAlt,
 } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 
 export const Card = () => {
   const navigate = useNavigate();

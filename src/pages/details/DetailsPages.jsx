@@ -1,61 +1,61 @@
-import React, { useState } from 'react'
-import './details.css'
-import '../../components/header/header.css'
-import img from '../../assets/images/b5.jpg'
-import { BsPencilSquare } from 'react-icons/bs'
-import { AiOutlineDelete } from 'react-icons/ai'
-import { useNavigate, useParams } from 'react-router-dom'
-import { useEffect } from 'react'
-import { blog } from '../../assets/data/data'
-import { Header } from '../../components/header/Header'
+import React, { useState } from "react";
+import "./details.css";
+import "../../components/header/header.css";
+import { BsPencilSquare } from "react-icons/bs";
+import { AiOutlineDelete } from "react-icons/ai";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
+import { Header } from "../../components/header/Header";
+import CommentSection from "../../pages/comment/CommentsForm";
+import b1 from "../../assets/images/blogs/b1.jpg";
 
 export const DetailsPages = () => {
-  const [isDelete, setIsDeleting] = useState(false)
-  const [blogs, setBlogs] = useState(null)
-  const [comment, setComment] = useState([])
-  const navigate = useNavigate()
+  const [isDelete, setIsDeleting] = useState(false);
+  const [blogs, setBlogs] = useState(null);
+  const [comment, setComment] = useState([]);
+  const navigate = useNavigate();
 
-  const { id } = useParams()
+  const { id } = useParams();
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts/1/comments')
+    fetch("https://jsonplaceholder.typicode.com/posts/1/comments")
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
-        setComment(data)
-      })
+        console.log(data);
+        setComment(data);
+      });
 
     fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
       .then((response) => response.json())
-      .then((data) => setBlogs(data))
+      .then((data) => setBlogs(data));
 
     // let blogs = blog.find((blogs) => blogs.id === parseInt(id))
     // if (blogs) {
     //   setBlogs(blogs)
     // }
-  }, [])
+  }, []);
 
   const handleDelete = async () => {
-    setIsDeleting(true)
+    setIsDeleting(true);
     const res = await fetch(
       `https://jsonplaceholder.typicode.com/posts/${id}`,
       {
-        method: 'DELETE',
-      },
+        method: "DELETE",
+      }
     ).then((res) => {
       if (res.ok) {
-        alert('Article Deleted')
-        return res
+        alert("Article Deleted");
+        return res;
       }
-    })
-    const data = await res.json()
-    setIsDeleting(false)
-    navigate('/')
-  }
+    });
+    const data = await res.json();
+    setIsDeleting(false);
+    navigate("/");
+  };
 
   const handlerEdit = () => {
-    navigate(`/edit/${id}`)
-  }
+    navigate(`/edit/${id}`);
+  };
   return (
     <>
       <Header />
@@ -63,7 +63,7 @@ export const DetailsPages = () => {
         <section className="singlePage">
           <div className="container">
             <div className="left">
-              <img src={blogs.cover} alt="" />
+              <img src={b1} alt="" />
             </div>
             <div className="right">
               <div className="buttons">
@@ -71,7 +71,7 @@ export const DetailsPages = () => {
                   <BsPencilSquare />
                 </button>
                 <button className="button" onClick={handleDelete}>
-                  {isDelete ? 'Deleting' : <AiOutlineDelete />}
+                  {isDelete ? "Deleting" : <AiOutlineDelete />}
                 </button>
               </div>
               <h1>Betadine Feminine Wash</h1>
@@ -126,10 +126,14 @@ export const DetailsPages = () => {
                   </div>
                 ))}
               </div>
+              <div>
+                <h2 className="text-xl">Leave a comment</h2>
+                <CommentSection />
+              </div>
             </div>
           </div>
         </section>
       ) : null}
     </>
-  )
-}
+  );
+};
