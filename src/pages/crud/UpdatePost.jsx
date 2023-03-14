@@ -1,33 +1,34 @@
-import React, { useEffect, useState } from 'react'
-import './create.css'
-import { IoIosAddCircleOutline } from 'react-icons/io'
-import { useParams } from 'react-router-dom'
-import { Header } from '../../components/header/Header'
+import React, { useEffect, useState } from "react";
+import "./create.css";
+import { IoIosAddCircleOutline } from "react-icons/io";
+import { useParams } from "react-router-dom";
+import { Header } from "../../components/header/Header";
+import b1 from "../../assets/images/blogs/b1.jpg";
 
 export const UpdatePost = () => {
-  const [title, setTitle] = useState('')
-  const [body, setBody] = useState('')
-  const [user, setUser] = useState(null)
-  const [isLoad, setIsLoading] = useState(false)
-  const [succes, setSuces] = useState(false)
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+  const [user, setUser] = useState(null);
+  const [isLoad, setIsLoading] = useState(false);
+  const [succes, setSuces] = useState(false);
 
   const handleTitle = (e) => {
-    setTitle((prev) => e.target.value)
-  }
+    setTitle((prev) => e.target.value);
+  };
 
   const handleBody = (e) => {
-    setBody((prev) => e.target.value)
-  }
+    setBody((prev) => e.target.value);
+  };
 
-  const { id } = useParams()
+  const { id } = useParams();
 
   const handleUpdate = async (e) => {
-    e.preventDefault()
-    setIsLoading(true)
+    e.preventDefault();
+    setIsLoading(true);
     const res = await fetch(
       `https://jsonplaceholder.typicode.com/posts/${id}`,
       {
-        method: 'PUT',
+        method: "PUT",
         body: JSON.stringify({
           id: id,
           title: title,
@@ -35,30 +36,30 @@ export const UpdatePost = () => {
           userId: user,
         }),
         headers: {
-          'Content-type': 'application/json; charset=UTF-8',
+          "Content-type": "application/json; charset=UTF-8",
         },
-      },
-    )
+      }
+    );
 
-    const data = await res.json()
-    setIsLoading(false)
-    setSuces(true)
+    const data = await res.json();
+    setIsLoading(false);
+    setSuces(true);
     setTimeout(() => {
-      setSuces(true)
-    }, 3000)
+      setSuces(true);
+    }, 3000);
     //   .then((response) => response.json())
     //   .then((json) => console.log(json))
-  }
+  };
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
       .then((response) => response.json())
       .then((data) => {
-        setTitle(data.title)
-        setBody(data.body)
-        setUser(data.userId)
-      })
-  }, [])
+        setTitle(data.title);
+        setBody(data.body);
+        setUser(data.userId);
+      });
+  }, []);
 
   return (
     <>
@@ -67,22 +68,18 @@ export const UpdatePost = () => {
         {succes ? (
           <span
             className={` ${
-              succes ? 'success' : 'success hide'
+              succes ? "success" : "success hide"
             } absolute flex bg-green-400 text-white p-2 rounded-lg right-3`}
           >
             Article Updated Successfully
           </span>
         ) : (
-          ''
+          ""
         )}
 
-        <div className="container boxItems ">
+        <div className="flex-col boxItems ">
           <div className="img ">
-            <img
-              src="https://images.pexels.com/photos/6424244/pexels-photo-6424244.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              alt="image"
-              class="image-preview"
-            />
+            <img src={b1} alt="image" class="image-preview" />
           </div>
           <form onSubmit={handleUpdate}>
             <div className="inputfile flexCenter">
@@ -105,11 +102,11 @@ export const UpdatePost = () => {
             ></textarea>
 
             <button className="button">
-              {isLoad ? 'Loading...' : 'Update Post'}
+              {isLoad ? "Loading..." : "Update Post"}
             </button>
           </form>
         </div>
       </section>
     </>
-  )
-}
+  );
+};

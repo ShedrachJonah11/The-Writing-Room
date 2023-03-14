@@ -54,7 +54,7 @@ const MobileMenu = () => {
           {nav.map((link) => (
             <li key={link.id}>
               <Link
-                className="capitalize bg-red-200 p-1 rounded-md"
+                // className="capitalize bg-red-200 p-1 rounded-md"
                 to={link.url}
                 onClick={() => setMenu(false)}
               >
